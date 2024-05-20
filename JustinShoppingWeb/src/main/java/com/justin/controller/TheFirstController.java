@@ -1,20 +1,29 @@
 package com.justin.controller;
 
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class TheFirstController {
 	
 	
-	@GetMapping("/")
-	public String spring() {
-		return "Spring Boot!!";
+	
+	
+	@GetMapping("/homePage")
+	public String homePage() {
+	        return "redirect:/index.html";    
 	}
 	
-	@GetMapping("/hello")
-	public String hello() {
-		return "Hello World!!";
+	@GetMapping("/register")
+	public String register() {
+		return "redirect:/register.html";
 	}
+	
+	
+	
+	
+	
 }
