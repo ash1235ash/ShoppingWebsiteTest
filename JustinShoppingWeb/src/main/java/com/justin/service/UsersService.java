@@ -11,10 +11,12 @@ import com.justin.repository.UsersRepository;
 public class UsersService {
 	
 	@Autowired
-	private UsersRepository userDao;
+	private UsersRepository usersRepository;
 	
 	public void insert(UsersBean user) {
-		userDao.save(user);
+		usersRepository.save(user);
 	}
+	
+
 
 }
