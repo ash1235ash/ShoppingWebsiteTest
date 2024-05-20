@@ -14,14 +14,13 @@ public class TheFirstController {
 	
 	@GetMapping("/homePage")
 	public String homePage() {
-		System.out.println("test");
-	        return "index";    
+	        return "redirect:/frontpages/index.html";    
 	}
 	
-	/*@GetMapping("/register")
+	@GetMapping("/register")
 	public String register() {
-		return "register";
-	}*/
+		return "redirect:/frontpages/register.html";
+	}
 	
 	
 	

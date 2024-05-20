@@ -1,0 +1,48 @@
+	show databases;
+     create database Webdata;
+      USE Webdata;
+    CREATE TABLE Users (
+    User_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) NOT NULL,
+    Password VARCHAR(20) NOT NULL,
+    Email VARCHAR(30),
+    Address VARCHAR(100),
+    Phone VARCHAR(25)
+);
+ CREATE TABLE Product (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(20) NOT NULL,
+    product_img VARCHAR(100) ,
+    product_price INT,
+    product_desciption VARCHAR(200),
+    product_type VARCHAR(20)
+);
+CREATE TABLE `ORDER` (
+    ORDER_ID BIGINT PRIMARY KEY ,
+    USER_ID INT, -- 外键，参考 Users 表格的 User_ID
+    TOTAL_PRICE INT,
+    PAY_STATUS NVARCHAR(20),
+    SHIPPING_STATUS NVARCHAR(20),
+    ORDER_DATE DATETIME,
+    SHIPPING_DATE DATETIME,
+    PAY_DEADLINE DATETIME,
+    PAYED_DATE DATETIME,
+    ORDER_NOTE NVARCHAR(100),
+    FOREIGN KEY (USER_ID) REFERENCES Users(User_ID)
+);
+
+CREATE TABLE ORDER_DETAIL (
+    ORDER_DETAIL_ID BIGINT PRIMARY KEY,
+    ORDER_ID BIGINT, -- 外键，参考 ORDER 表格的 ORDER_ID
+    PRODUCT_ID INT, -- 外键，参考 Product 表格的 product_id
+    PRODUCT_NUM INT,
+    PRODUCT_NAME NVARCHAR(20),
+    PRODUCT_PRICE INT,
+    PRODUCT_QUANTITY INT,
+    FOREIGN KEY (ORDER_ID) REFERENCES `ORDER`(ORDER_ID),
+    FOREIGN KEY (PRODUCT_ID) REFERENCES Product(product_id)
+);
+select * from product;
+select * from `order`;
+select * from order_detail;
+select * from users;
