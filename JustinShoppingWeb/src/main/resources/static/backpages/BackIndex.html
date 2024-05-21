@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理</title>
+<style>
+.navbar {
+            display: flex;
+            background-color: #333;
+            padding: 10px;
+        }
+        .nav-item {
+            margin: 0 15px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-item:hover {
+            text-decoration: underline;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+</style>
+</head>
+<body>
+	 <div class="navbar">
+        <div class="nav-item" onclick="getAllUsers()">會員管理</div>
+        <div class="nav-item" onclick="">商品管理</div>
+        <div class="nav-item" onclick="">訂單管理</div>
+    </div>
+
+	<div class="content">
+		<h1>後臺管理</h1>
+		<p>請選擇導覽列之管理項目</p>
+	</div>
+	<div class="main" id="main">
+	<div class="newObject">
+	<button id="newObjectButton" style="display:none"></button>
+	<form id="newObjectForm">
+        
+    </form>
+	
+	
+	</div>
+	
+	
+		<table id="dataTable">
+
+		</table>
+	</div>
+	<script src="userFunction.js"></script>
+
+</body>
+</html>
