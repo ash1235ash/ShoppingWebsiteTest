@@ -15,7 +15,7 @@ public class UsersService {
 	@Autowired
 	private UsersRepository usersRepository;
 	
-	public UsersBean insertAndUpdate(UsersBean user) {
+	public UsersBean insertUser(UsersBean user) {
 		usersRepository.save(user);
 		user.setPassword(null);
 		return user;
@@ -29,6 +29,23 @@ public class UsersService {
 	            user.setPassword(null);
 	        }
 	        return users;
+	}
+	
+	public UsersBean updateUser(UsersBean user) {
+		UsersBean originalData=usersRepository.findById(user.getUserId()).orElse(null);
+		String password=originalData.getPassword();
+		user.setPassword(password);
+		usersRepository.save(user);
+		user.setPassword(null);
+		return user;
+	}
+	
+	public UsersBean selectByUserId(Integer userId) {
+		//usersRepository.findById(userId).orElse(null).setPassword(null);
+		
+		UsersBean user=usersRepository.findById(userId).orElse(null);
+		user.setPassword(null);
+		return user;
 	}
 	
 
